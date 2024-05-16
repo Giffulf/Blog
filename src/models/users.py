@@ -4,7 +4,7 @@ from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from src.database import Base
 from src.models.posts import Post
-from src.models.like import Like
+from src.models.likes import Like
 
 user_to_user = Table(
     "user_to_user",
@@ -23,7 +23,7 @@ class User(Base):
         String(60), nullable=False, unique=True, index=True
     )
     api_key: Mapped[str] = mapped_column()
-    tweets: Mapped[List["Post"]] = relationship(
+    posts: Mapped[List["Post"]] = relationship(
         backref="user", cascade="all, delete-orphan"
     )
     likes: Mapped[List["Like"]] = relationship(
