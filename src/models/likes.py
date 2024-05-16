@@ -10,6 +10,6 @@ class Like(Base):
 
     id: Mapped[int] = mapped_column(primary_key=True, autoincrement=True, index=True)
     user_id: Mapped[int] = mapped_column(ForeignKey("users.id"))
-    tweets_id: Mapped[int] = mapped_column(ForeignKey("tweets.id"))
+    posts_id: Mapped[int] = mapped_column(ForeignKey("posts.id"))
 
     __mapper_args__ = {"confirm_deleted_rows": False}
