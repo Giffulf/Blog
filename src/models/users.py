@@ -15,6 +15,9 @@ user_to_user = Table(
 
 
 class User(Base):
+    """
+    Модель для хранения данных о пользователях
+    """
 
     __tablename__ = "users"
 
