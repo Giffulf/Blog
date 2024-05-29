@@ -3,11 +3,14 @@ import datetime
 from typing import List
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 from sqlalchemy import ForeignKey, String
+
 from src.database import Base
 from src.models.likes import Like
 
-
 class Post(Base):
+    """
+    Модель для хранения твитов
+    """
 
     __tablename__ = "posts"
 
