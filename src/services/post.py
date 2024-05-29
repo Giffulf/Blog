@@ -26,8 +26,7 @@ class PostsService:
         """
         logger.debug("Вывод постов")
 
-        # FIXME По ТЗ возврат с сортировкой по популярности
-        #  (сделать в модели подсчет лайков + сортировка по дате и лайкам)
+
         query = (
             select(Post)
             .filter(Post.user_id.in_(user.id for user in user.following))
@@ -37,8 +36,6 @@ class PostsService:
             )
             .order_by(Post.created_at.desc())
         )
-        # joinedload - запрашиваем данные из связанных таблиц
-        # subqueryload - запрашиваем связанные вложенные данные по автору лайка без доп.запроса к БД
 
         result = await session.execute(query)
         posts = result.unique().scalars().all()
