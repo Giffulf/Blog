@@ -44,10 +44,7 @@ class LikeService:
                 detail="The user has already liked this post",
             )
 
-        # TODO При реализации подсчета лайков
-        # tweet.num_likes += 1  # Увеличиваем счетчик с лайками
-
-        like_record = Like(user_id=user_id, post_id=post.id)
+        like_record = Like(user_id=user_id, posts_id=post.id)
 
         session.add(like_record)
         await session.commit()
