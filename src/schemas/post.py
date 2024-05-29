@@ -25,7 +25,7 @@ class PostInSchema(BaseModel):
         if len(val) > 280:
             raise CustomApiException(
                 status_code=HTTPStatus.UNPROCESSABLE_ENTITY,  # 422
-                detail=f"The length of the tweet should not exceed 280 characters. "
+                detail=f"The length of the post should not exceed 280 characters. "
                 f"Current value: {len(val)}",
             )
 
@@ -52,7 +52,7 @@ class PostResponseSchema(ResponseSchema):
 
 class PostOutSchema(BaseModel):
     """
-    Схема для вывода поста, автора, вложенных изображений и данных по лайкам
+    Схема для вывода поста, автора и данных по лайкам
     """
 
     id: int
