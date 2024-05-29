@@ -27,8 +27,6 @@ class UserService:
             .where(User.api_key == token)
             .options(selectinload(User.following), selectinload(User.followers))
         )
-        # ВАЖНО: selectinload - подгружаем подписчиков
-        # в противном случае по ним нет данных - не проходит валидация схемы!
 
         result = await session.execute(query)
 
