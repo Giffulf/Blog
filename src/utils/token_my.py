@@ -17,7 +17,6 @@ class APITokenHeader(APIKeyHeader):
 
         if not api_key:
             if self.auto_error:
-                # Кастомная ошибка для вывода сообщения в формате, указанном в документации
                 raise CustomApiException(
                     status_code=HTTPStatus.UNAUTHORIZED,  # 401
                     detail="User authorization error",
@@ -27,6 +26,4 @@ class APITokenHeader(APIKeyHeader):
 
         return api_key
 
-
-# Для удобной авторизации в /docs (верхний правый угол на странице документации)
 TOKEN = APITokenHeader(name="api-key")
