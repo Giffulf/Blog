@@ -9,7 +9,7 @@ from src.models.likes import Like
 
 class Post(Base):
     """
-    Модель для хранения твитов
+    Модель для хранения постов
     """
 
     __tablename__ = "posts"
