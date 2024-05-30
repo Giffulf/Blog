@@ -6,7 +6,7 @@ from src.database import Base
 
 class Like(Base):
     """
-       Модель для хранения данных о лайках к твитам
+       Модель для хранения данных о лайках к постам
        """
     __tablename__ = "likes"
 
