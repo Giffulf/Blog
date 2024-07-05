@@ -24,8 +24,6 @@ if config.config_file_name is not None:
 # target_metadata = mymodel.Base.metadata
 target_metadata = [Base.metadata, metadata]
 
-# Создаем специальный объект - секцию, при помощи которой
-# можно заменить строки в alembic.ini нужными переменными для подключения к БД
 section = config.config_ini_section
 config.set_section_option(section, "DB_HOST", DB_HOST)
 config.set_section_option(section, "DB_PORT", DB_PORT)
